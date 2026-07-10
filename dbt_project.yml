@@ -1,0 +1,27 @@
+name: analytics
+version: '1.0.0'
+config-version: 2
+ 
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+ 
+models:
+  analytics:
+    bronze:
+      +schema: BRONZE
+      +materialized: view
+ 
+    silver:
+      +schema: SILVER
+      +materialized: table
+ 
+    gold:
+      +schema: GOLD
+      +materialized: table
+ 
+seeds:
+  analytics:
+    raw:
+      +schema: RAW
+      +quote_columns: false
